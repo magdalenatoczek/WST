@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  ws-task
+
+  Created by Magdalena Toczek on 20/10/2023.
+  
+*/
+
+// WELCOME SCREEN
+"welcome_button_title" = "GET STARTED";
+
+// DASHBOARD SCREEN
+"dashboard_segment_all_title" = "ALL";
+"dashboard_segment_filtered_title" = "FILTERED";
+
+"dashboard_longitude_title" = "Longitude: ";
+"dashboard_altitude_title" = "Altitude: ";
+"dashboard_timestamp_title" = "Timestamp: ";
+"dashboard_latitude_title" = "Latitude: ";
+"dashboard_accuracy_title" = "Accuracy: ";
+"dashboard_distance_title" = "Distance: ";
+
+// DETAILS SCREEN
+"details_title" = "DETAILS";
