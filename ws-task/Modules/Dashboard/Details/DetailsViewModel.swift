@@ -10,8 +10,8 @@ import RxSwift
 import RxCocoa
 
 protocol DetailsViewModel {
-    func dismiss() 
     var inputSubject: BehaviorSubject<GpsModel?> { get }
+    func dismiss()
 }
 
 final class DetailsViewModelImpl: DetailsViewModel {

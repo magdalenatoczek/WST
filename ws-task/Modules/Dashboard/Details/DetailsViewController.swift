@@ -9,9 +9,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController {
     typealias ViewModel = DetailsViewModel
-    typealias L = Localization.Details
+    typealias Strings = Localization.Details
     
     // MARK: - Properties
     
@@ -29,7 +29,7 @@ class DetailsViewController: UIViewController {
         let title = UILabel()
         title.font = .regular16
         title.textColor = UIColor.accent
-        title.text = L.title
+        title.text = Strings.title
         return title
     }()
     

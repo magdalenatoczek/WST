@@ -11,10 +11,10 @@ import RxCocoa
 import MapKit
 
 protocol DashboardViewModel {
-    func showSelectedItem(for item: GpsModel)
     var currentValueObservable: Observable<[GpsModel]> { get }
     var coordinatesObservable: Observable<[Coordinates]> { get }
-    func getItems(for type: GpsDataType) 
+    func showSelectedItem(for item: GpsModel)
+    func fetchItems(for type: GpsDataType) 
 }
 
 final class DashboardViewModelImpl: DashboardViewModel {
@@ -45,7 +45,7 @@ final class DashboardViewModelImpl: DashboardViewModel {
         coordinator.show(type: .details(item))
     }
     
-    func getItems(for type: GpsDataType) {
+    func fetchItems(for type: GpsDataType) {
         let allItems = allItemsSubject.value
         let newValue: [GpsModel]
         switch type {
@@ -70,8 +70,7 @@ final class DashboardViewModelImpl: DashboardViewModel {
     private func getItems(from path: String) {
         dependencies.filesManager.readFile(fileName: path, type: .json)
             .flatMap { self.dependencies.jsonDecoder.decode(data: $0, type: [GpsModel].self) }
-            .asObservable()
-            .subscribe(onNext: { [weak self] in
+            .subscribe(onSuccess: { [weak self] in
                 self?.allItemsSubject.accept($0)
                 self?.currentValueSubject.onNext($0)
             })

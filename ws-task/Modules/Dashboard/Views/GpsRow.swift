@@ -8,7 +8,7 @@
 import UIKit
 
 enum InputType {
-    typealias L = Localization.Dashboard
+    typealias Strings = Localization.Dashboard
     
     case longitude
     case altitude
@@ -19,12 +19,12 @@ enum InputType {
     
     var title: String {
         switch self {
-        case .longitude: return L.longitudeTitle
-        case .altitude: return L.altitudeTitle
-        case .timestamp: return L.timestampTitle
-        case .latitude: return L.latitudeTitle
-        case .accuracy: return L.accuracyTitle
-        case .distance: return L.distanceTitle
+        case .longitude: return Strings.longitudeTitle
+        case .altitude: return Strings.altitudeTitle
+        case .timestamp: return Strings.timestampTitle
+        case .latitude: return Strings.latitudeTitle
+        case .accuracy: return Strings.accuracyTitle
+        case .distance: return Strings.distanceTitle
         }
     }
     

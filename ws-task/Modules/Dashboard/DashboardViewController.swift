@@ -13,7 +13,7 @@ import SnapKit
 
 enum GpsDataType: Int, CaseIterable {
     
-    typealias L = Localization.Dashboard
+    typealias Strings = Localization.Dashboard
     
     case all = 0
     case filtered = 1
@@ -21,14 +21,14 @@ enum GpsDataType: Int, CaseIterable {
     var title: String {
         switch self {
         case .all:
-            return L.allTitle
+            return Strings.allTitle
         case .filtered:
-            return L.filteredTitle
+            return Strings.filteredTitle
         }
     }
 }
 
-class DashboardViewController: UIViewController {
+final class DashboardViewController: UIViewController {
     typealias ViewModel = DashboardViewModel
     
     // MARK: - Properties
@@ -82,7 +82,6 @@ class DashboardViewController: UIViewController {
         return segmentedControl
     }()
     
-
     // MARK: - Initialization
     
     init(viewModel: ViewModel) {
@@ -156,7 +155,7 @@ class DashboardViewController: UIViewController {
         
         segmentedControl.rx.selectedSegmentIndex
             .subscribe { [weak self] index in
-                self?.viewModel.getItems(for: GpsDataType(rawValue: index) ?? .all)
+                self?.viewModel.fetchItems(for: GpsDataType(rawValue: index) ?? .all)
             }
             .disposed(by: bag)
     }

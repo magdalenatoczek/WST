@@ -36,5 +36,4 @@ extension String {
             }
         }
     }
-    
 }

@@ -10,10 +10,10 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class WelcomeViewController: UIViewController {
+final class WelcomeViewController: UIViewController {
     
     typealias ViewModel = WelcomeViewModel
-    typealias L = Localization.Welcome
+    typealias Strings = Localization.Welcome
     
     // MARK: - Properties
     
@@ -26,7 +26,7 @@ class WelcomeViewController: UIViewController {
         button.setTitleColor(UIColor.text, for: .normal)
         button.layer.cornerRadius = 24
         button.titleLabel?.font = .bold16
-        button.setTitle(L.title, for: .normal)
+        button.setTitle(Strings.title, for: .normal)
         return button
     }()
     
@@ -44,7 +44,6 @@ class WelcomeViewController: UIViewController {
         return imageView
     }()
     
-       
     // MARK: - Initialization
     
     init(viewModel: ViewModel) {

@@ -26,9 +26,9 @@ final class DashboardViewModelTests: XCTestCase {
 
     func testGetItems() throws {
         XCTAssertEqual(try viewModel.currentValueObservable.toBlocking().first()?.count, 7)
-        viewModel.getItems(for: .all)
+        viewModel.fetchItems(for: .all)
         XCTAssertEqual(try viewModel.currentValueObservable.toBlocking().first()?.count, 7)
-        viewModel.getItems(for: .filtered)
+        viewModel.fetchItems(for: .filtered)
         XCTAssertEqual(try viewModel.currentValueObservable.toBlocking().first()?.count, 4)
     }
     

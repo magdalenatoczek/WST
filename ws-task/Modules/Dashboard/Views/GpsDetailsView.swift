@@ -39,11 +39,10 @@ final class GpsDetailsView: UIView {
         latitudeView.setup(value: input.latitude)
         accuracyView.setup(value: input.accuracy)
         distanceView.setup(value: input.distance)
-   }
+    }
     
     private func layoutView() {
         self.addSubview(stackView)
         stackView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
-
 }
